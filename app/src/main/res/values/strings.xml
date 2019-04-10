@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">JadZan</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="hijriah">Hijriah</string>
+</resources>
