@@ -13,6 +13,6 @@ import static com.example.jadzan.data.model.JadzanResponse.*;
 public interface JadzanApi {
 
     @GET("calendarByCity")
-    Call<List<DataBean>> getPrayerTimeByCity(@Query("city") String city, @Query("country") String country);
+    Call<JadzanResponse> getPrayerTimeByCity(@Query("city") String city, @Query("country") String country);
 
 }

@@ -52,15 +52,16 @@ public class JadzanAdapter extends RecyclerView.Adapter<JadzanAdapter.CustomView
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
-        public TextView time,date,title,hijriah;
+        public TextView time, date, title, hijriah;
 
         public CustomViewHolder(View view) {
             super(view);
-            title =  view.findViewById(R.id.setnya);
+            title = view.findViewById(R.id.setnya);
             time = view.findViewById(R.id.waktu);
             date = view.findViewById(R.id.date);
             hijriah = view.findViewById(R.id.hijri);
         }
     }
-
 }
+
+

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.jadzan.data.adapter.JadzanAdapter;
+import com.example.jadzan.data.model.JadzanResponse;
 import com.example.jadzan.data.rest.JadzanService;
 import com.example.jadzan.data.rest.JadzanApi;
 
@@ -47,19 +48,20 @@ public class MainActivity extends AppCompatActivity {
        // load();
 
         jadzanApi = JadzanService.getAPI().create(JadzanApi.class);
-        Call<List<DataBean>> call = jadzanApi.getPrayerTimeByCity("Maros","ID");
-        call.enqueue(new Callback<List<DataBean>>() {
+        Call<JadzanResponse> call = jadzanApi.getPrayerTimeByCity("Maros","ID");
+        call.enqueue(new Callback<JadzanResponse>() {
             @Override
-            public void onResponse(Call<List<DataBean>> call, Response<List<DataBean>> response) {
+            public void onResponse(Call<JadzanResponse> call, Response<JadzanResponse> response) {
                 pDialog.dismiss();
-                data = response.body();
+
+                data = response.body().getData();
                 jadzanAdapter = new JadzanAdapter(data);
                 recyclerView.setAdapter(jadzanAdapter);
                 jadzanAdapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onFailure(Call<List<DataBean>> call, Throwable t) {
+            public void onFailure(Call<JadzanResponse> call, Throwable t) {
                 pDialog.dismiss();
 
             }
